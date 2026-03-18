@@ -1,0 +1,128 @@
+:root {
+  --bg: #0a0a0a;
+  --text: #fff;
+  --accent: #00f0ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Animated Text */
+.animated-text {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #fff, #00f0ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glowText 3s infinite alternate;
+}
+
+@keyframes glowText {
+  from { filter: drop-shadow(0 0 5px #00f0ff); }
+  to { filter: drop-shadow(0 0 20px #00f0ff); }
+}
+
+/* PRODUCTS GRID */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 5%;
+  gap: 20px;
+}
+
+.card {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+/* FLOATING BUTTON */
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--accent);
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--accent);
+  animation: float 3s infinite;
+  cursor: pointer;
+}
+
+@keyframes float {
+  0%,100% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+}
+
+/* CURSOR */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .animated-text {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
